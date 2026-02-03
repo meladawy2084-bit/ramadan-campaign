@@ -2,6 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>مؤشر حملة شنطة رمضان</title>
 <style>
   :root {
     --primary-color: #2e7d32;
@@ -10,38 +12,42 @@
   }
   body { 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background-color: transparent; 
+    background-color: #f4f4f4; 
     margin: 0; 
-    padding: 10px; 
+    padding: 15px; /* قللت الهوامش شوية للموبايل */
     display: flex; 
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
   }
   .main-card {
     background: white;
     width: 100%;
-    max-width: 550px;
+    max-width: 100%; /* شلت القيد على العرض عشان يملى الشاشة */
     border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-top: 8px solid var(--primary-color);
+    padding: 30px 20px; /* كبرت الـ padding الداخلي */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-top: 10px solid var(--primary-color);
+    box-sizing: border-box;
   }
-  .header { text-align: center; margin-bottom: 25px; }
-  .header h1 { color: var(--primary-color); margin: 0; font-size: 22px; }
-  .header p { color: #666; margin-top: 5px; font-size: 14px; }
+  .header { text-align: center; margin-bottom: 35px; }
+  .header h1 { color: var(--primary-color); margin: 0; font-size: 28px; /* تكبير العنوان */ font-weight: 800; }
+  .header p { color: #555; margin-top: 10px; font-size: 16px; /* تكبير النص الفرعي */ }
 
   /* تنسيق العدادات */
-  .progress-section { margin-bottom: 25px; }
-  .label-group { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: bold; font-size: 14px; }
-  .target-label { color: #888; font-weight: normal; }
+  .progress-section { margin-bottom: 35px; }
+  .label-group { display: flex; justify-content: space-between; margin-bottom: 12px; font-weight: bold; font-size: 16px; /* تكبير العناوين */ }
+  .target-label { color: #777; font-weight: normal; font-size: 14px; }
   
   .progress-bg { 
-    background: #f0f0f0; 
+    background: #e0e0e0; 
     border-radius: 50px; 
-    height: 28px; 
+    height: 35px; /* تكبير ارتفاع العداد */
     width: 100%; 
     overflow: hidden; 
     position: relative;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
   }
   .progress-fill { 
     height: 100%; 
@@ -51,27 +57,30 @@
     align-items: center; 
     justify-content: center; 
     color: white; 
-    font-size: 11px;
+    font-size: 14px; /* تكبير نسبة الإنجاز داخل العداد */
     font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   }
   .fill-money { background: linear-gradient(90deg, #4caf50, #2e7d32); }
   .fill-bags { background: linear-gradient(90deg, #ff9800, #f57c00); }
 
-  .current-stats { font-size: 14px; margin-top: 8px; font-weight: bold; }
+  .current-stats { font-size: 18px; /* تكبير رقم المحصل */ margin-top: 12px; font-weight: bold; }
   
   /* Loading Spinner */
-  .loader { border: 3px solid #f3f3f3; border-top: 3px solid var(--primary-color); border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; margin: 20px auto; display: block; }
+  .loader { border: 4px solid #f3f3f3; border-top: 4px solid var(--primary-color); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 30px auto; display: block; }
   @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
   .btn-messenger {
     display: flex; align-items: center; justify-content: center;
     background-color: var(--messenger-blue); color: white; text-decoration: none;
-    padding: 14px; border-radius: 12px; font-weight: bold; font-size: 16px; margin-top: 15px;
-    transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0, 132, 255, 0.3);
+    padding: 16px; /* تكبير الزر */
+    border-radius: 15px; font-weight: bold; font-size: 18px; /* تكبير خط الزر */
+    margin-top: 25px;
+    transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 132, 255, 0.4);
   }
-  .btn-messenger:hover { background-color: #0073e6; transform: translateY(-2px); }
-  .messenger-icon { margin-left: 10px; width: 22px; filter: brightness(0) invert(1); }
-  .footer-info { text-align: center; margin-top: 20px; font-size: 0.8rem; color: #aaa; border-top: 1px solid #f5f5f5; padding-top: 15px; }
+  .btn-messenger:hover { background-color: #0073e6; transform: translateY(-3px); }
+  .messenger-icon { margin-left: 12px; width: 26px; filter: brightness(0) invert(1); }
+  .footer-info { text-align: center; margin-top: 25px; font-size: 0.9rem; color: #999; border-top: 1px solid #eee; padding-top: 20px; }
 </style>
 </head>
 <body>
@@ -87,7 +96,7 @@
   <div id="dashboard" style="display:none;">
       <div class="progress-section">
         <div class="label-group">
-          <span>إجمالي حتى الآن</span>
+          <span>💰 إجمالي التبرعات المالية</span>
           <span class="target-label">الهدف: <span id="lbl-target-money">...</span> ج.م</span>
         </div>
         <div class="progress-bg">
@@ -112,7 +121,7 @@
       </div>
 
       <a href="https://m.me/a2elaty" class="btn-messenger" target="_blank">
-        تواصل معنا عبر ماسينجر 
+        تواصل معنا عبر ماسينجر للتفاصيل
         <img class="messenger-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" alt="messenger">
       </a>
   </div>
@@ -132,12 +141,10 @@
     .then(response => response.text())
     .then(csvText => {
       // تنظيف البيانات وقراءتها
-      // نفترض أن البيانات في الصف الأول: المبلغ المحصل، المستهدف، سعر الشنطة
       const rows = csvText.split('\n');
-      // نأخذ أول سطر ونقسمه بالفواصل
       const data = rows[0].split(',');
 
-      // تنظيف الأرقام من أي علامات (مثل " أو مسافات)
+      // تنظيف الأرقام
       const collectedMoney = parseFloat(data[0].replace(/["\s]/g, ''));
       const targetMoney = parseFloat(data[1].replace(/["\s]/g, ''));
       const bagPrice = parseFloat(data[2].replace(/["\s]/g, ''));
@@ -147,8 +154,7 @@
       const bagsTarget = Math.floor(targetMoney / bagPrice);
       
       const moneyPercent = ((collectedMoney / targetMoney) * 100).toFixed(1);
-      const bagsPercent = ((bagsCollected / bagsTarget) * 100).toFixed(1);
-
+      
       // تحديث الواجهة
       document.getElementById('lbl-target-money').innerText = targetMoney.toLocaleString();
       document.getElementById('lbl-target-bags').innerText = bagsTarget.toLocaleString();
@@ -163,7 +169,7 @@
       setTimeout(() => {
         document.getElementById('bar-money').style.width = moneyPercent + '%';
         document.getElementById('bar-money').innerText = moneyPercent + '%';
-        document.getElementById('bar-bags').style.width = moneyPercent + '%'; // نستخدم نفس النسبة للشنط
+        document.getElementById('bar-bags').style.width = moneyPercent + '%'; 
         document.getElementById('bar-bags').innerText = moneyPercent + '%';
       }, 100);
 
@@ -171,7 +177,7 @@
     .catch(error => {
       console.error('Error fetching data:', error);
       document.getElementById('loading-spinner').style.display = 'none';
-      document.querySelector('.header').insertAdjacentHTML('beforeend', '<p style="color:red">عذراً، حدث خطأ في تحميل البيانات. تأكد من رابط الشيت.</p>');
+      document.querySelector('.header').insertAdjacentHTML('beforeend', '<p style="color:red">عذراً، حدث خطأ في تحميل البيانات.</p>');
     });
 </script>
 
